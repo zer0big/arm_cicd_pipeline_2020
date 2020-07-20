@@ -17,3 +17,24 @@ steps:
     ScriptPath: 'ExampleAppDeploy/Deploy-AzureResourceGroup.ps1'
     ScriptArguments: -ResourceGroupName 'arm_cicd_demo' -ResourceGroupLocation 'koreacentral'
     azurePowerShellVersion: LatestVersion
+
+- task: AzureFileCopy@4
+  inputs:
+    SourcePath: 'ExampleAppDeploy'
+    azureSubscription: 'Azure로운 생활(a791ad38-5fa2-447d-8833-460ee318d917)'
+    Destination: 'AzureBlob'
+    storage: 'zerosazpfrjxq4jaw4c'
+    ContainerName: 'zerosacontainer'
+
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Azure로운 생활(a791ad38-5fa2-447d-8833-460ee318d917)'
+    subscriptionId: 'a791ad38-5fa2-447d-8833-460ee318d917'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'arm_cicd_demo'
+    location: 'Korea Central'
+    templateLocation: 'Linked artifact'
+    csmFile: 'arm_cicd_demo/WebSite.json'
+    csmParametersFile: 'arm_cicd_demo/WebSite.parameters.json'
+    deploymentMode: 'Incremental'

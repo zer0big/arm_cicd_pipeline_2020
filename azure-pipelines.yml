@@ -1,0 +1,19 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'Azure로운 생활(a791ad38-5fa2-447d-8833-460ee318d917)'
+    ScriptType: 'FilePath'
+    ScriptPath: 'ExampleAppDeploy/Deploy-AzureResourceGroup.ps1'
+    ScriptArguments: '-ResourceGroupName ''arm_cicd_demo'' -ResourceGroupLocation ''koreacentral'''
+    azurePowerShellVersion: 'LatestVersion'

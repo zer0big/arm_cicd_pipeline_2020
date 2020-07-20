@@ -10,12 +10,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: AzurePowerShell@5
+- task: AzurePowerShell@3
   inputs:
     azureSubscription: 'Azure로운 생활(a791ad38-5fa2-447d-8833-460ee318d917)'
-    ScriptType: 'FilePath'
     ScriptPath: 'ExampleAppDeploy/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: '-ResourceGroupName ''arm_cicd_demo'' -ResourceGroupLocation ''koreacentral'''
-    azurePowerShellVersion: 'LatestVersion'
-    pwsh: true
-    workingDirectory: ExampleAppDeploy
+    ScriptArguments: -ResourceGroupName 'arm_cicd_demo' -ResourceGroupLocation 'koreacentral'
+    azurePowerShellVersion: LatestVersion

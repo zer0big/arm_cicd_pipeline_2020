@@ -11,12 +11,14 @@ pool:
 
 steps:
 - task: AzureFileCopy@4
+  displayName: 'AzureBlob File Copy'
   inputs:
-    SourcePath: 'ExampleAppDeploy'
+    SourcePath: ExampleAppDeploy
     azureSubscription: 'Azure로운 생활(a791ad38-5fa2-447d-8833-460ee318d917)'
-    Destination: 'AzureBlob'
-    storage: 'zerosazpfrjxq4jaw4c'
-    ContainerName: 'zerosacontainer'
+    Destination: AzureBlob
+    storage: zerosazpfrjxq4jaw4c
+    ContainerName: democontainer
+
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'

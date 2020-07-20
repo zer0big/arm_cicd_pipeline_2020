@@ -17,3 +17,5 @@ steps:
     ScriptPath: 'ExampleAppDeploy/Deploy-AzureResourceGroup.ps1'
     ScriptArguments: '-ResourceGroupName ''arm_cicd_demo'' -ResourceGroupLocation ''koreacentral'''
     azurePowerShellVersion: 'LatestVersion'
+    pwsh: true
+    workingDirectory: ExampleAppDeploy

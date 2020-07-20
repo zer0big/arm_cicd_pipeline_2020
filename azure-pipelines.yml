@@ -17,9 +17,6 @@ steps:
     Destination: AzureBlob
     storage: zerosazpfrjxq4jaw4c
     ContainerName: democontainer
-    outputStorageUri: 'artifactsLocation'
-    outputStorageContainerSasToken: 'artifactsLocationSasToken'
-    sasTokenTimeOutInMinutes: '240'
 
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
@@ -30,6 +27,6 @@ steps:
     resourceGroupName: 'arm_cicd_demo'
     location: 'Korea Central'
     templateLocation: 'Linked artifact'
-    csmFile: 'arm_cicd_demo/WebSite.json'
-    csmParametersFile: 'arm_cicd_demo/WebSite.parameters.json'
+    csmFile: 'ExampleAppDeploy/WebSite.json'
+    csmParametersFile: 'ExampleAppDeploy/WebSite.parameters.json'
     deploymentMode: 'Incremental'

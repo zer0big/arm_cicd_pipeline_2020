@@ -15,8 +15,8 @@ steps:
     SourcePath: ExampleAppDeploy
     azureSubscription: 'Azure로운 생활(a791ad38-5fa2-447d-8833-460ee318d917)'
     Destination: AzureBlob
-    storage: zerosazpfrjxq4jaw4c
-    ContainerName: democontainer
+    storage: newsatest
+    ContainerName: newdemocontainer
 
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:

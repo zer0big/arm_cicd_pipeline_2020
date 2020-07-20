@@ -8,16 +8,8 @@ trigger:
 
 pool:
   name: Hosted Windows 2019 with VS2019
-  demands: azureps
 
 steps:
-- task: AzurePowerShell@3
-  inputs:
-    azureSubscription: 'Azure로운 생활(a791ad38-5fa2-447d-8833-460ee318d917)'
-    ScriptPath: 'ExampleAppDeploy/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'arm_cicd_demo' -ResourceGroupLocation 'koreacentral'
-    azurePowerShellVersion: LatestVersion
-
 - task: AzureFileCopy@4
   inputs:
     SourcePath: 'ExampleAppDeploy'
@@ -25,7 +17,6 @@ steps:
     Destination: 'AzureBlob'
     storage: 'zerosazpfrjxq4jaw4c'
     ContainerName: 'zerosacontainer'
-
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
